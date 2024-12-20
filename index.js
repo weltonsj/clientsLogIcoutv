@@ -155,7 +155,7 @@ document.addEventListener('focus', (event) => {
 
 // Lógica para enviar os dados para a planilha google sheets
 // Adiciona um evento de envio para o formulário
-document.getElementById('icoutechForm').addEventListener("submit", (event) => {
+document.getElementById('icoutechForm').addEventListener("submit", function (event) {
   event.preventDefault(); // Impede o envio padrão
 
   // Cria um objeto FormData com os dados do formulário
