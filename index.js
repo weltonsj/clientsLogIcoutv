@@ -155,21 +155,21 @@ document.addEventListener('focus', (event) => {
 
 // Lógica para enviar os dados para a planilha google sheets
 // Adiciona um evento de envio para o formulário
-const scriptDoGoogle = 'https://script.google.com/macros/s/AKfycbyGqXXP-FQbn_kEEOs6syY182VRVOEAYdtpSkDJla2Cz8ee750YkO15R8yBPRSjzJ_D1Q/exec';
-const dadosDoFormulario = document.forms['icoutechForm'];
+// const scriptDoGoogle = 'https://script.google.com/macros/s/AKfycbyGqXXP-FQbn_kEEOs6syY182VRVOEAYdtpSkDJla2Cz8ee750YkO15R8yBPRSjzJ_D1Q/exec';
+// const dadosDoFormulario = document.forms['icoutechForm'];
 
-dadosDoFormulario.addEventListener('submit', function (e) {
-  e.preventDefault();
-  fetch(scriptDoGoogle, { method: 'POST', body: new FormData(dadosDoFormulario) })
-    .then(response => {
-      // Se os dados forem gravados corretamente, será enviada uma mensagemde sucesso
-      alert('Dados Enviados com sucesso!', response);
-      dadosDoFormulario.rest();
-    })
-    .catch(error =>
-      // Se houver erro no envio, a mensagem abaixo será exibida
-      console.log('Erro no envio dos dados', error))
-});
+// dadosDoFormulario.addEventListener('submit', function (e) {
+//   e.preventDefault();
+//   fetch(scriptDoGoogle, { method: 'POST', body: new FormData(dadosDoFormulario) })
+//     .then(response => {
+//       // Se os dados forem gravados corretamente, será enviada uma mensagemde sucesso
+//       alert('Dados Enviados com sucesso!', response);
+//       dadosDoFormulario.rest();
+//     })
+//     .catch(error =>
+//       // Se houver erro no envio, a mensagem abaixo será exibida
+//       console.log('Erro no envio dos dados', error))
+// });
 
 
 
