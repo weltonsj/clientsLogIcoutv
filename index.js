@@ -155,24 +155,43 @@ document.addEventListener('focus', (event) => {
 
 // Lógica para enviar os dados para a planilha google sheets
 // Adiciona um evento de envio para o formulário
-document.getElementById('icoutechForm').addEventListener("submit", function (event) {
-  event.preventDefault(); // Impede o envio padrão
+const scriptDoGoogle = 'https://script.google.com/macros/s/AKfycbyGqXXP-FQbn_kEEOs6syY182VRVOEAYdtpSkDJla2Cz8ee750YkO15R8yBPRSjzJ_D1Q/exec';
+const dadosDoFormulario = document.forms['icoutechForm'];
 
-  // Cria um objeto FormData com os dados do formulário
-  const formData = new FormData(this);
-
-  // Envia os dados para o Google Apps Script usando fetch
-  fetch(this.action, {
-    method: "POST",
-    body: formData
-  })
-  .then(response => response.json())  // Espera uma resposta JSON do Apps Script
-  .then(data => {
-    console.log("Resposta recebida:", data);
-    alert("Dados enviados com sucesso!");
-  })
-  .catch(error => {
-    console.error("Erro ao enviar os dados:", error);
-    alert("Ocorreu um erro ao enviar os dados.");
-  });
+dadosDoFormulario.addEventListener('submit', function (e) {
+  e.preventDefault();
+  fetch(scriptDoGoogle, { method: 'POST', body: new FormData(dadosDoFormulario) })
+    .then(response => {
+      // Se os dados forem gravados corretamente, será enviada uma mensagemde sucesso
+      alert('Dados Enviados com sucesso!', response);
+      dadosDoFormulario.rest();
+    })
+    .catch(error =>
+      // Se houver erro no envio, a mensagem abaixo será exibida
+      console.log('Erro no envio dos dados', error))
 });
+
+
+
+
+// document.getElementById('icoutechForm').addEventListener("submit", function (event) {
+//   event.preventDefault(); // Impede o envio padrão
+
+//   // Cria um objeto FormData com os dados do formulário
+//   const formData = new FormData(this);
+
+//   // Envia os dados para o Google Apps Script usando fetch
+//   fetch(this.action, {
+//     method: "POST",
+//     body: formData
+//   })
+//   .then(response => response.json())  // Espera uma resposta JSON do Apps Script
+//   .then(data => {
+//     console.log("Resposta recebida:", data);
+//     alert("Dados enviados com sucesso!");
+//   })
+//   .catch(error => {
+//     console.error("Erro ao enviar os dados:", error);
+//     alert("Ocorreu um erro ao enviar os dados.");
+//   });
+// });
