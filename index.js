@@ -97,12 +97,12 @@ document.getElementById("telefone").addEventListener("input", function (e) {
 });
 
 // Validação e formatação de E-mail (simples)
-document.getElementById("email").addEventListener("input", function (e) {
-  let input = e.target;
-  input.value = input.value
-    .replace(/[^a-zA-Z0-9@._-]/g, "") // Remove caracteres inválidos
-    .replace(/(\..*)\./g, "$1"); // Evita dois pontos consecutivos
-});
+// document.getElementById("email").addEventListener("input", function (e) {
+//   let input = e.target;
+//   input.value = input.value
+//     .replace(/[^a-zA-Z0-9@._-]/g, "") // Remove caracteres inválidos
+//     .replace(/(\..*)\./g, "$1"); // Evita dois pontos consecutivos
+// });
 
 // Máscara para CEP
 document.getElementById("cep").addEventListener("input", function (e) {
